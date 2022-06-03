@@ -13,7 +13,9 @@ I recommend reading the [Arch manual](https://wiki.archlinux.org/title/Installat
 # Disclamer
 I am trying to be as consistent as possible with the latest Arch/Gentoo installation methods, but if anything changes I would be glad to modify in the project. So, if you see that something is not right with your installation procces, an issue would be greatly appreciated.
 
-*I also recommend tying the script in an* `virtual enviorment` *before running it on a real system*
+*I also recommend tying the script in an* `virtual enviorment` *before running it on a real system*.
+
+# VM recommandations
 Gentoo recomendation for a virtual mashine:
   - CPU - as much as possible
   - RAM - 1.5x the cpu threads allocated (if possible)
