@@ -1,5 +1,5 @@
 # DeployLinux
-Deploy a linux mashine with minimal effort and quick setup.
+Deploy a linux machine with minimal effort and quick setup.
 Used for deploying a Gentoo or Arch linux enviorment.
 
 # Deployment script
