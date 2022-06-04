@@ -16,10 +16,10 @@ I am trying to be as consistent as possible with the latest Arch/Gentoo installa
 *I also recommend tying the script in an* `virtual enviorment` *before running it on a real system*.
 
 # VM recommandations
-Gentoo recomendation for a virtual mashine:
+Gentoo recomendation for a virtual machine:
   - CPU - as much as possible
   - RAM - 1.5x the cpu threads allocated (if possible)
 
-Arch recomendation for virtual mashine:
+Arch recomendation for virtual machine:
   - CPU - 2 cores, 2 threads
   - RAM - 4096 MiB
