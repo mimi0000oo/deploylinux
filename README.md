@@ -4,7 +4,7 @@ Used for deploying a Gentoo or Arch linux enviorment.
 
 # Deployment script
 ```bash
-wget https://github.com/mimi0000oo/deploylinux/archive/master.zip && unzip master.zip && deploylinux-master/deploy.sh
+curl https://raw.githubusercontent.com/mimi0000oo/deploylinux/master/deploy.sh -o deploy.sh && chmod +x deploy.sh && ./deploy.sh
 ```
 
 # Manuals
