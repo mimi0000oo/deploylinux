@@ -19,6 +19,7 @@ I am trying to be as consistent as possible with the latest Arch/Gentoo installa
 Gentoo recomendation for a virtual mashine:
   - CPU - as much as possible
   - RAM - 1.5x the cpu threads allocated (if possible)
+
 Arch recomendation for virtual mashine:
   - CPU - 2 cores, 2 threads
   - RAM - 4096 MiB
