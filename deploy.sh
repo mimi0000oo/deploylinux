@@ -1,5 +1,5 @@
 #!/bin/sh
 
-distro="$(dmesg | grep "Linux version" | awk {' print $8 '} | sed -e 's/(//')"
+distro="$(dmesg | grep "Linux version" | awk {' print $6 '} | sed -e 's/^([a-z]*@//' | sed -e 's/)//')"
 
 echo $distro
