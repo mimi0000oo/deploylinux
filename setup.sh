@@ -1,21 +1,14 @@
 #!/bin/bash
 
-# colors
-RED="\e[38;5;9m"
-GREEN="\e[38;5;10m"
-YELLOW="\e[38;5;11m"
-BLUE="\e[38;5;12m"
-MAGENTA="\e[38;5;13m"
-CYAN="\e[38;5;14m"
-WHITE="\e[38;5;15m"
-# colors end
 # include files
-create_prompt() { arch/./create_prompt.sh "$@"; }
-start_configuration() { arch/./start_configuration.sh; }
-import_configuration() { arch/./import_configuration.sh; }
-#include end
+source ./other/colors.sh
+source ./other/distro.sh
+source ./other/create_prompt.sh
+start_configuration() { ./arch/./start_configuration.sh; }
+import_configuration() { ./gentoo/./import_configuration.sh; }
+# include end
 
-printf "$BLUE" 
+if [ $distro == "archlinux" ]; then printf $BLUE; else printf $MAGENTA; fi; 
 clear
 # welcome message
 echo "  "░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗ 
@@ -35,10 +28,10 @@ create_prompt "You have a few options to choose from:" "Start the configuration"
 read welcomeoption
 case $welcomeoption in 
   1)
-    start_configuration
+    if [ $distro == "archlinux" ]; then ./arch/./start_configuration.sh; else ./gentoo/./start_configuration.sh; fi; 
     ;;
   2)
-    import_configuration
+    if [ $distro == "archlinux" ]; then ./arch/./import_configuration.sh; else ./gentoo/./import_configuration.sh; fi; 
     ;;
   3)
     printf "Goodbye!\n" 
