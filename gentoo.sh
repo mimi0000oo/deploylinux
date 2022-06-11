@@ -10,9 +10,9 @@ CYAN="\e[38;5;14m"
 WHITE="\e[0m"
 # colors end
 # include files
-create_prompt() { gentoo/./create_prompt.sh "$@" }
-start_configuration() { gentoo/./start_configuration.sh }
-import_configuration() { gentoo/./import_configuration.sh }
+create_prompt() { gentoo/./create_prompt.sh "$@"; }
+start_configuration() { gentoo/./start_configuration.sh; }
+import_configuration() { gentoo/./import_configuration.sh; }
 #include end
 
 printf $MAGENTA
@@ -42,12 +42,13 @@ case $welcomeoption in
     import_configuration
     ;;
   3)
-    printf "Goodbye!" 
+    clear
+    printf "Goodbye!\n" 
     ;;
   4)
     rm ../testing.zip && rm ../deploylinux-testing
     ;;
   *)
-    printf $RED "$YELLOW\"$welcomeoption\"$RED is not a valid option"
+    printf "${YELLOW}\"$welcomeoption\"${RED} is not a valid option!${WHITE}\n"
     ;;
 esac
