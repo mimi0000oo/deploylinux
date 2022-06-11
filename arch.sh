@@ -9,9 +9,14 @@ MAGENTA="\e[38;5;13m"
 CYAN="\e[38;5;14m"
 WHITE="\e[38;5;15m"
 # colors end
-clear
+# include files
+create_prompt() { arch/./create_prompt.sh "$@"; }
+start_configuration() { arch/./start_configuration.sh; }
+import_configuration() { arch/./import_configuration.sh; }
+#include end
 
 printf "$BLUE" 
+clear
 # welcome message
 echo "  "░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗ 
 echo "  "░██║░░██╗░░██║██╔════╝██║░░░░░██╔══██╗██╔══██╗████╗░████║██╔════╝
@@ -25,10 +30,6 @@ echo ║╚╦═╗║╚╣╚╦═╗╔═╗╔╦╦═╣╚╗╔═╦
 echo ║╔╣╬║║╔╣║║╩╣║╬╚╣╔╣═╣║║╚╗║╔╣╩╣╔╬═║║╬║║║║║╬║╔╝║╔╣║║╩╣║║║║╠═║╔╣╬╚╣╚╣╚╣╩╣╔╝
 echo ╚═╩═╝╚═╩╩╩═╝╚══╩╝╚═╩╩╝─╚═╝╚═╩╝╚═╩╩═╩╩═╝╚═╩╝─╚═╩╩╩═╝╚╩╩═╩═╩═╩══╩═╩═╩═╩╝
 # end of the welcome
-
-create_prompt() {
-  arch/./create_prompt.sh "$@"
-}
 
 create_prompt "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
 read welcomeoption
