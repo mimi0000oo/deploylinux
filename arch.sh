@@ -40,11 +40,11 @@ case $welcomeoption in
     import_configuration
     ;;
   3)
-    clear
     printf "Goodbye!\n" 
     ;;
   4)
     rm ../testing.zip && rm -r ../deploylinux-testing
+    printf "Goodbye!\n" 
     ;;
   *)
     printf "${YELLOW}\"$welcomeoption\"${RED} is not a valid option!${WHITE}\n"
