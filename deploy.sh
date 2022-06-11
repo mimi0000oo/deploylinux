@@ -6,11 +6,15 @@ if [ $distro == "archlinux" ]; then
   pacman -Sy --noconfirm wget unzip
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
-  deploylinux-testing/./arch.sh
+  cd deploylinux-testing/
+  ./arch.sh
+  rm ../deploy.sh
 
 else
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
-  deploylinux-testing/./gentoo.sh
+  cd deploylinux-testing/
+  ./gentoo.sh
+  rm ../deploy.sh
 
 fi

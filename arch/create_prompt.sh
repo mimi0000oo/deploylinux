@@ -9,3 +9,4 @@ args=("$@")
 for (( i=1; i<=$(($# - 1)); i++ )); do
   printf "$i)$WHITE ${args[${i}]}\n$BLUE"
 done
+printf "$BLUE> $WHITE"

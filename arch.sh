@@ -25,3 +25,11 @@ echo ║╚╦═╗║╚╣╚╦═╗╔═╗╔╦╦═╣╚╗╔═╦
 echo ║╔╣╬║║╔╣║║╩╣║╬╚╣╔╣═╣║║╚╗║╔╣╩╣╔╬═║║╬║║║║║╬║╔╝║╔╣║║╩╣║║║║╠═║╔╣╬╚╣╚╣╚╣╩╣╔╝
 echo ╚═╩═╝╚═╩╩╩═╝╚══╩╝╚═╩╩╝─╚═╝╚═╩╝╚═╩╩═╩╩═╝╚═╩╝─╚═╩╩╩═╝╚╩╩═╩═╩═╩══╩═╩═╩═╩╝
 # end of the welcome
+
+create_prompt() {
+  arch/./create_prompt.sh "$@"
+}
+
+create_prompt "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
+read welcomeoption
+

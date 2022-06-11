@@ -27,4 +27,10 @@ echo ╚═╩═╝╚═╩╩╩═╝╠╗╠═╩╩═╩═╩═╩═
 echo ────────────╚═╝
 # end of the welcome
 
-gentoo/./create_prompt.sh "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
+create_prompt() {
+  gentoo/./create_prompt.sh "$@"
+}
+
+create_prompt "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
+read welcomeoption
+
