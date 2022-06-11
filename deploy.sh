@@ -7,14 +7,14 @@ if [ $distro == "archlinux" ]; then
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
   cd deploylinux-testing/
-  ./arch.sh
   rm ../deploy.sh
+  ./arch.sh
 
 else
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
   cd deploylinux-testing/
-  ./gentoo.sh
   rm ../deploy.sh
+  ./gentoo.sh
 
 fi
