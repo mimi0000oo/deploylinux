@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # colors
 RED="\e[38;5;9m"
@@ -46,5 +46,8 @@ case $welcomeoption in
     ;;
   4)
     rm ../testing.zip && rm ../deploylinux-testing
+    ;;
+  *)
+    printf $RED "$YELLOW\"$welcomeoption\"$RED is not a valid option"
     ;;
 esac

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 MAGENTA="\e[38;5;13m"
 WHITE="\e[0m"

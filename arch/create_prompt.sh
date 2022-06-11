@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BLUE="\e[38;5;12m"
 WHITE="\e[0m"
