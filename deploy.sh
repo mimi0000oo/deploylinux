@@ -8,13 +8,13 @@ if [ $distro == "archlinux" ]; then
   unzip testing.zip
   cd deploylinux-testing/
   rm ../deploy.sh
-  ./arch.sh
+  ./setup.sh
 
 else
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
   cd deploylinux-testing/
   rm ../deploy.sh
-  ./gentoo.sh
+  ./setup.sh
 
 fi
