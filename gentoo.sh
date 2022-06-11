@@ -46,7 +46,7 @@ case $welcomeoption in
     printf "Goodbye!\n" 
     ;;
   4)
-    rm ../testing.zip && rm ../deploylinux-testing
+    rm ../testing.zip && rm -r ../deploylinux-testing
     ;;
   *)
     printf "${YELLOW}\"$welcomeoption\"${RED} is not a valid option!${WHITE}\n"

@@ -32,7 +32,6 @@ create_prompt() {
 
 create_prompt "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
 read welcomeoption
-read welcomeoption
 case $welcomeoption in 
   1)
     start_configuration
@@ -45,7 +44,7 @@ case $welcomeoption in
     printf "Goodbye!\n" 
     ;;
   4)
-    rm ../testing.zip && rm ../deploylinux-testing
+    rm ../testing.zip && rm -r ../deploylinux-testing
     ;;
   *)
     printf "${YELLOW}\"$welcomeoption\"${RED} is not a valid option!${WHITE}\n"
