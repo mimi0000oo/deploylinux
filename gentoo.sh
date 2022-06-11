@@ -7,7 +7,7 @@ YELLOW="\e[38;5;11m"
 BLUE="\e[38;5;12m"
 MAGENTA="\e[38;5;13m"
 CYAN="\e[38;5;14m"
-WHITE="\e[38;5;15m"
+WHITE="\e[0m"
 # colors end
 clear
 
@@ -26,3 +26,5 @@ echo ║╔╣╬║║╔╣║║╩╣║╬║╩╣║║║╔╣╬║╬
 echo ╚═╩═╝╚═╩╩╩═╝╠╗╠═╩╩═╩═╩═╩═╝─╚═╝╚═╩╝╚═╩╩═╩╩═╝╚═╩╝─╚═╩╩╩═╝╚╩╩═╩═╩═╩══╩═╩═╩═╩╝
 echo ────────────╚═╝
 # end of the welcome
+
+gentoo/./create_prompt.sh "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
