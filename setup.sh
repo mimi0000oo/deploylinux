@@ -35,23 +35,27 @@ echo ────────────╚═╝
 fi
 # end of the welcome
 
-option_prompt "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
-read option
-case $option in 
-  1)
-    if [ $distro == "archlinux" ]; then arch_start_configuration; else gentoo_start_configuration; fi; 
-    ;;
-  2)
-    if [ $distro == "archlinux" ]; then arch_import_configuration; else gentoo_import_configuration; fi; 
-    ;;
-  3)
-    printf "Goodbye!\n" 
-    ;;
-  4)
-    rm ../testing.zip && rm -r ../deploylinux-testing
-    printf "Goodbye!\n" 
-    ;;
-  *)
-    printf "${YELLOW}\"$welcomeoption\"${RED} is not a valid option!${WHITE}\n"
-    ;;
-esac
+setup_prompt() {
+
+  option_prompt "You have a few options to choose from:" "Start the configuration" "Import a configuration file" "Quit" "Quit and delete the script"
+  read option
+  case $option in 
+    1)
+      if [ $distro == "archlinux" ]; then arch_start_configuration; else gentoo_start_configuration; fi; 
+      ;;
+    2)
+      if [ $distro == "archlinux" ]; then arch_import_configuration; else gentoo_import_configuration; fi; 
+      ;;
+    3)
+      printf "Goodbye!\n" 
+      ;;
+    4)
+      rm ../testing.zip && rm -r ../deploylinux-testing
+      printf "Goodbye!\n" 
+      ;;
+    *)
+      printf "${YELLOW}\"$option\"${RED} is not a valid option!${WHITE}\n"
+      ;;
+  esac
+
+}
