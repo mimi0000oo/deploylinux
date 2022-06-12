@@ -2,10 +2,10 @@
 
 # include files
 source ../other/colors.sh
-source ./check_distro.sh
+source ../other/distro.sh
 # include end
 
-create_prompt() {
+option_prompt() {
   printf "$1\n"
   args=("$@")
 
