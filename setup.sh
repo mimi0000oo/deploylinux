@@ -55,6 +55,7 @@ setup_prompt() {
       ;;
     *)
       printf "${YELLOW}\"$option\"${RED} is not a valid option!${WHITE}\n"
+      setup_prompt
       ;;
   esac
 
