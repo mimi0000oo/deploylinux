@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # include files
-source ../other/colors.sh
-source ../other/distro.sh
+source ./other/colors.sh
+source ./other/distro.sh
 # include end
 
 option_prompt() {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # include files
-source ../other/colors.sh
+source ./other/colors.sh
 # include end
 
 solve_ynprompt() {

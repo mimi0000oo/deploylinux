@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # include files
-source ../prompts/option_prompt.sh
-source ../prompts/solve_optprompt.sh
-source ../other/colors.sh
-check_efi() { ../other/check_efi.sh; }
+source ./prompts/option_prompt.sh
+source ./prompts/solve_optprompt.sh
+source ./other/colors.sh
+check_efi() { ./other/check_efi.sh; }
 # include end
 
 if [ !$1 ]; then 
@@ -44,6 +44,8 @@ else
 
   else                 #EFI/UEFI option
     create_partitions() {
+
+      echo to do
 
     }
 
