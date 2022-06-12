@@ -59,3 +59,4 @@ setup_prompt() {
   esac
 
 }
+setup_prompt
