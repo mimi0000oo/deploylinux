@@ -22,7 +22,7 @@ solve_optprompt() {
 
     else 
       args=("$@")
-      if [ $distro == "archlinux" ]; then echo ${BLUE}$(${args[${moption}]}); else ${MAGENTA}$(${args[${moption}]}); fi; 
+      if [ $distro == "archlinux" ]; then printf "${BLUE}$(${args[${moption}]})"; else printf "${MAGENTA}$(${args[${moption}]})"; fi; 
       
     fi
 
