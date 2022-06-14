@@ -10,7 +10,7 @@ arch_import_configuration() { ./arch/./import_configuration.sh; }
 gentoo_import_configuration() { ./gentoo/./import_configuration.sh; }
 # include end
 
-if [ $distro == "archlinux" ]; then printf $BLUE; else printf $MAGENTA; fi; 
+if [ $distro = "archlinux" ]; then printf $BLUE; else printf $MAGENTA; fi; 
 clear
 # welcome message
 echo "  "░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗ 
@@ -21,7 +21,7 @@ echo "  "░░╚██╔╝░╚██╔╝░███████╗█�
 echo "  "░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝
 echo ""
 
-if [ $distro == "archlinux" ]; then 
+if [ $distro = "archlinux" ]; then 
 echo ╔╗───╔╗╔╗──────────╔╗─────────╔═╦╗───────╔═╗╔╗╔╗───╔╗──╔═╦╗
 echo ║╚╦═╗║╚╣╚╦═╗╔═╗╔╦╦═╣╚╗╔═╦═╦═╦╦╣═╬╬═╦═╦╗╔═╣═╣║╚╣╚╦═╗╠╬═╦╣═╣╚╦═╗╔╗╔╗╔═╦╦╗
 echo ║╔╣╬║║╔╣║║╩╣║╬╚╣╔╣═╣║║╚╗║╔╣╩╣╔╬═║║╬║║║║║╬║╔╝║╔╣║║╩╣║║║║╠═║╔╣╬╚╣╚╣╚╣╩╣╔╝
@@ -41,10 +41,10 @@ setup_prompt() {
   read option
   case $option in 
     1)
-      if [ $distro == "archlinux" ]; then arch_start_configuration; else gentoo_start_configuration; fi; 
+      if [ $distro = "archlinux" ]; then arch_start_configuration; else gentoo_start_configuration; fi; 
       ;;
     2)
-      if [ $distro == "archlinux" ]; then arch_import_configuration; else gentoo_import_configuration; fi; 
+      if [ $distro = "archlinux" ]; then arch_import_configuration; else gentoo_import_configuration; fi; 
       ;;
     3)
       printf "Goodbye!\n" 

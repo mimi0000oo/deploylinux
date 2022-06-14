@@ -7,15 +7,14 @@ source ./other/colors.sh
 check_efi() { ./other/check_efi.sh; }
 # include end
 
-create_partitions() {
-  if [ !$1 ]; then 
-    check_efi
+if ! [ -z $1 ]; then
+  check_efi
 
-  else 
+else 
 
-    if [ $1 == 2 ]; then #bios option
+  if [ "$1" = 2 ]; then # bios option
 
-      select_drive() {
+    select_drive() {
 
         printf ${WHITE}"This is your curent configuration:\n${MAGENTA}$(lsblk -o MODEL,NAME,SIZE,TYPE,MOUNTPOINTS,HOTPLUG)"
         option_prompt "Which drive do you want to install Gentoo on?"
@@ -38,13 +37,11 @@ create_partitions() {
 
       }
       
-      select_drive
-    
-    else
-      echo to do
+    select_drive
 
-    fi
-  
+  else
+   echo to do 
+
   fi
 
-}
+fi
