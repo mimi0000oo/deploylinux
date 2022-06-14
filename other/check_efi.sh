@@ -5,8 +5,8 @@ source ./other/colors.sh
 source ./prompts/option_prompt.sh 
 source ./prompts/solve_optprompt.sh
 source ./other/distro.sh
-arch_create_partitions() { ./arch/create_partitions.sh; }
-gentoo_create_partitions() { ./gentoo/create_partitions.sh; }
+source ./arch/create_partitions.sh
+source ./gentoo/create_partitions.sh
 #include end
 
 

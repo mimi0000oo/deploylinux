@@ -7,13 +7,13 @@ source ./other/colors.sh
 check_efi() { ./other/check_efi.sh; }
 # include end
 
-if [ !$1 ]; then 
-  check_efi
+create_partitions() {
+  if [ !$1 ]; then 
+    check_efi
 
-else 
+  else 
 
-  if [ $1 == 2 ]; then #bios option
-    create_partitions() {
+    if [ $1 == 2 ]; then #bios option
 
       select_drive() {
 
@@ -37,18 +37,14 @@ else
         }
 
       }
-
+      
       select_drive
-
-    }
-
-  else                 #EFI/UEFI option
-    create_partitions() {
-
+    
+    else
       echo to do
 
-    }
-
+    fi
+  
   fi
 
-fi
+}
