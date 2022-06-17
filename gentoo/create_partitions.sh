@@ -7,7 +7,7 @@ source ./other/colors.sh
 check_efi() { ./other/check_efi.sh; }
 # include end
 
-if [ $1 = 2 ]; then # bios mode
+if [ "$1" = 2 ]; then # bios mode
 
   select_drive() {
     printf ${WHITE}"This is your curent configuration:\n${MAGENTA}$(lsblk -o MODEL,NAME,SIZE,TYPE,MOUNTPOINTS,HOTPLUG)"
@@ -33,10 +33,11 @@ if [ $1 = 2 ]; then # bios mode
 
   select_drive
 
-elif [ $1 = 3 ]; then # efi mode
+elif [ "$1" = 3 ]; then # efi mode
   echo efi_test
 
 else
+  echo else
   check_efi
 
 fi
