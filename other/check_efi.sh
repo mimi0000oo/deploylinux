@@ -22,7 +22,7 @@ distro_choose() {
 
 
 if dmesg | grep -q "EFI v"; then
-    distro_choose 3
+  distro_choose 3
 
 else 
   option_prompt "${RED}Your system doesn't seem to have EFI/UEFI mode enabled!" "Reboot to change" "Keep going without EFI/UEFI" "It is a mistake, EFI/UEFI is enabled"
