@@ -10,7 +10,7 @@ check_efi() { ./other/check_efi.sh; }
 if [ "$1" = 2 ]; then # bios mode
 
   select_drive() {
-    printf ${WHITE}"This is your curent configuration:\n${MAGENTA}$(lsblk -o MODEL,NAME,SIZE,TYPE,MOUNTPOINTS,HOTPLUG)"
+    printf ${WHITE}"\nThis is your curent configuration:\n${MAGENTA}$(lsblk -o MODEL,NAME,SIZE,TYPE,MOUNTPOINTS,HOTPLUG)"
     option_prompt "Which drive do you want to install Gentoo on?"
     read drive
     printf ${CYAN}"You selected drive ${YELLOW}\"$drive\""
@@ -28,6 +28,8 @@ if [ "$1" = 2 ]; then # bios mode
       solve_optprompt $partitions "echo The predefined partitions are:\n$predefined_partitions"
 
     }
+
+    select_partition_route
 
   }
 
