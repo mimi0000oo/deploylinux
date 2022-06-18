@@ -37,7 +37,6 @@ elif [ "$1" = 3 ]; then # efi mode
   echo efi_test
 
 else
-  echo else
   check_efi
 
 fi
