@@ -2,22 +2,25 @@
 
 # include files
 source ./other/colors.sh
+source ./other/distro.sh
 # include end
 
 solve_ynprompt() {
+  echo 1: $1; echo 2: $2
   read option
 
   case $option in
     [yY]*) 
-      if [ $distro == "archlinux" ]; then echo ${BLUE}$($1); else echo ${MAGENTA}$($1); fi; 
+      if [ $distro == "archlinux" ]; then printf ${BLUE}$($1); else printf ${MAGENTA}$($1); fi; 
       ;;
 
     [nN]*)
-      if [ $distro == "archlinux" ]; then echo ${BLUE}$($2); else echo ${MAGENTA}$($2); fi; 
+      if [ $distro == "archlinux" ]; then printf ${BLUE}$($2); else printf ${MAGENTA}$($2); fi; 
       ;;
 
     *)
       printf "${YELLOW}\"$option\"${RED} is not a valid option!${WHITE}\n"
+      solve_ynprompt "$1" "$2"
       ;;
   
   esac

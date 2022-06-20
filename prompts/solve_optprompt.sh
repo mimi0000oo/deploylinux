@@ -14,7 +14,7 @@ solve_optprompt() {
 
     *) 
       
-      if [ $1 -gt $(($# - 1)) ]; then
+    if [ $1 -gt $(($# - 1)) ]; then
       printf "${YELLOW}\"$1\"${RED} is not a valid option!${WHITE}\n"
 
     elif [ $1 -lt 1 ]; then
