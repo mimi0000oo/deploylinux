@@ -2,7 +2,7 @@
 
 # include files
 source ./prompts/option_prompt.sh
-source .import_configurationts/solve_optprompt.sh
+source ./prompts/solve_optprompt.sh
 source ./prompts/yn_prompt.sh
 source ./prompts/solve_ynprompt.sh
 source ./other/colors.sh
