@@ -55,11 +55,6 @@ if [ "$1" = 2 ]; then # bios mode
 
         }
 
-        custom_partitions() {
-          
-
-        }
-
         partition_case() {
         
           case $1 in
