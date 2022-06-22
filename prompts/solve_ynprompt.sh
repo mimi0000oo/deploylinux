@@ -6,7 +6,6 @@ source ./other/distro.sh
 # include end
 
 solve_ynprompt() {
-  echo 1: $1; echo 2: $2
   read option
 
   case $option in
