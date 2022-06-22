@@ -46,9 +46,9 @@ if [ "$1" = 2 ]; then # bios mode
 
           printf "The predefined partitions are:\n"
           printf "NAME        SIZE            TYPE                MOUNTPOINTS\n"
-          printf "${disk}         $(lsblk | grep -m1 $disk | awk {' print $4 '})              disk\n"
+          printf "${disk}         $(lsblk | grep -m1 $disk | awk {' print $4 '})             disk\n"
           printf "${disk}1        256M            EFI System          /boot\n"
-          printf "${disk}2        4G              Linux Swap          [SWAP]\n"
+          printf "${disk}2        4G                 Linux Swap          [SWAP]\n"
           printf "${disk}3        ${lastdrive_size}G          Linux filesystem    /\n"
         
           option_prompt "Are you sure you want to continue?\n${RED}WARNING! ${YELLOW}THIS WILL WIPE ALL THE DATA ON YOUR DISK!!${MAGENTA}" "Continue with this partition scheme" "Make your own partitions" "Back" "Quit"
@@ -60,8 +60,6 @@ if [ "$1" = 2 ]; then # bios mode
           case $1 in
 
             1)
-              predefined_partitions
-              read predefined_confirmation
 
               predefined_partition_scheme() {
           
@@ -79,6 +77,10 @@ if [ "$1" = 2 ]; then # bios mode
               }
             
               predefined_confirmation_case() {
+                
+                predefined_partitions
+                read predefined_confirmation
+
 
                 case $predefined_confirmation in 
               
@@ -91,7 +93,7 @@ if [ "$1" = 2 ]; then # bios mode
                     ;;
 
                   3)
-                    partition_case 1 
+                    select_partition_route
                     ;;
 
                   4)
@@ -113,35 +115,7 @@ if [ "$1" = 2 ]; then # bios mode
 
             2)
               
-              yn_prompt "I will let you out on your own, in fdisk. Is that ok?"
-              read fdisk_option
               
-              custom_partitions_case() {
-
-                case $fdisk_option in
-              
-                  [yY]*) 
-                    fdisk
-                  
-                    print ${MAGENTA}"This is your setup now:\n${WHITE}$(lsblk)"
-                    yn_prompt "Are you ok with this setup?"
-
-                    ;;
-
-                  [nN]*)
-                    partition_case $1
-                    ;;
-
-                  *)
-                    printf "${YELLOW}\"$fdisk_option\"${RED} is not a valid option!${WHITE}\n"
-                    custom_partitions_case
-                    ;;
-  
-                esac
-              
-              }
-
-              custom_partitions_case $1
 
               ;;
 
@@ -150,7 +124,7 @@ if [ "$1" = 2 ]; then # bios mode
               ;;
 
             4)
-              echo Goodbye!
+              printf "Goodbye!\n"
               ;;
 
             *)
@@ -163,8 +137,6 @@ if [ "$1" = 2 ]; then # bios mode
         }
 
         partition_case $partitions
-
-        
 
       }
   
