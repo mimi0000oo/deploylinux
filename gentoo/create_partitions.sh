@@ -60,7 +60,7 @@ if [ "$1" = 2 ]; then # bios mode
                 #disk
                 wipefs -a /dev/${disk}
                 #disk1-3
-                (echo o; echo n; echo p; echo ; echo ; echo +256M; echo n; echo p; echo ; echo ; echo +4G; echo t; echo 82; echo n; echo p; echo ; echo; echo; echo w;) | fdisk /dev/$disk
+                (echo o; echo n; echo p; echo ; echo ; echo +256M; echo n; echo p; echo ; echo ; echo +4G; echo t; echo 2; echo 82; echo n; echo p; echo ; echo; echo; echo w;) | fdisk /dev/$disk
 
                 #filesystems
                 mkfs.vfat -F 32 /dev/${disk}1
