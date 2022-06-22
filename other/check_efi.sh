@@ -27,7 +27,7 @@ if dmesg | grep -q "EFI v"; then
 else 
   option_prompt "${RED}Your system doesn't seem to have EFI/UEFI mode enabled!" "Reboot to change" "Keep going without EFI/UEFI" "It is a mistake, EFI/UEFI is enabled"
   read EFI
-  solve_optprompt $EFI "reboot" "echo We keep going! Swiching to BIOS/Legacy partitioning format." "echo We sometimes make mistakes ok? Let's keep going with the EFI/UEFI partitioning format!"
+  solve_optprompt $EFI "reboot" "echo We keep going! Swiching to BIOS/Legacy partitioning format.\n" "echo We sometimes make mistakes ok? Let's keep going with the EFI/UEFI partitioning format!"
   
   distro_choose $EFI
 

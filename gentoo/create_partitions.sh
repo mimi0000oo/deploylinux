@@ -21,7 +21,7 @@ if [ "$1" = 2 ]; then # bios mode
     
     choose_drive() {
     
-      printf ${WHITE}"This is your curent configuration:\n${MAGENTA}$drives\n"
+      printf ${WHITE}"This is your curent disk configuration:\n${MAGENTA}$drives\n"
 
       option_prompt "${MAGENTA}Which drive do you want to install Gentoo on?"
       read drive
@@ -45,12 +45,12 @@ if [ "$1" = 2 ]; then # bios mode
 
             printf "The predefined partitions are:\n"
             printf "NAME        SIZE            TYPE                MOUNTPOINTS\n"
-            printf "${disk}         $(lsblk | grep -m1 $disk | awk {' print $4 '})          disk\n"
+            printf "${disk}         $(lsblk | grep -m1 $disk | awk {' print $4 '})              disk\n"
             printf "${disk}1        256M            EFI System          /boot\n"
             printf "${disk}2        4G              Linux Swap          [SWAP]\n"
-            printf "${disk}3        ${lastdrive_size}G            Linux filesystem    /\n"
+            printf "${disk}3        ${lastdrive_size}G          Linux filesystem    /\n"
             
-            option_prompt "Are you sure you want to continue?\n${RED}WARNING${YELLOW}THIS WILL ERAZE ALL THE DATA ON YOUR DISK!!${MAGENTA}" "Continue with this partition scheme" "Make your own partitions" "Back" "Quit"
+            option_prompt "Are you sure you want to continue?\n${RED}WARNING! ${YELLOW}THIS WILL WIPE ALL THE DATA ON YOUR DISK!!${MAGENTA}" "Continue with this partition scheme" "Make your own partitions" "Back" "Quit"
             read partitions_confirmation
             
             case $partitions_confirmation in 
@@ -58,7 +58,7 @@ if [ "$1" = 2 ]; then # bios mode
               1)
 
                 #disk
-                wipefs -a /dev/sda
+                wipefs -a /dev/${disk}
                 #disk1-3
                 (echo o; echo n; echo p; echo ; echo ; echo +256M; echo n; echo p; echo ; echo ; echo +4G; echo t; echo 82; echo n; echo p; echo ; echo; echo; echo w;) | fdisk /dev/$disk
 
