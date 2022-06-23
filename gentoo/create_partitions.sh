@@ -186,6 +186,8 @@ if [ "$1" = 2 ]; then # bios mode
 
                             }
 
+                            final_custom_check_case
+
                           }
 
                           select_partitions_number
