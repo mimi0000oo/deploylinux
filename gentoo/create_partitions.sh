@@ -125,7 +125,7 @@ if [ "$1" = 2 ]; then # bios mode
                   [yY]*) 
 
                     enter_custom_configuration() {
-                      fdisk
+                      fdisk /dev/${disk}
 
                       printf "${MAGENTA}This are your partitions now!\n$(lsblk)\n"
                       option_prompt "Is this ok?" "Yes" "No" "Back to fdisk" "Go to the predefined partitions" "Quit"
@@ -137,7 +137,7 @@ if [ "$1" = 2 ]; then # bios mode
                     ;;
 
                   [nN]*)
-                    printf "Going back!"
+                    printf "Going back!\n"
                     select_partition_route
                     ;;
 
