@@ -140,17 +140,17 @@ if [ "$1" = 2 ]; then # bios mode
                             printf $MAGENTA"What is your boot partition nr?\n>"
                             read boot_partition
 
-                            if [ $boot_partition -n -lt 1 ]; then printf "${YELLOW}\"$boot_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
+                            if [ $boot_partition -lt 1 ]; then printf "${YELLOW}\"$boot_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
 
                             printf $MAGENTA"What is your swap partition nr? (0 for none)\n>"
                             read swap_partition
                           
-                            if [ $swap_partition -n -lt 0 ]; then printf "${YELLOW}\"$swap_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
+                            if [ $swap_partition -lt 0 ]; then printf "${YELLOW}\"$swap_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
 
                             printf $MAGENTA"What is your root partition nr?\n>"
                             read root_partition
                           
-                            if [ $root_partition -n -lt 1 ]; then printf "${YELLOW}\"$root_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
+                            if [ $root_partition -lt 1 ]; then printf "${YELLOW}\"$root_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
     
                             if [ $swap_partition -eq 0 ]; then 
                               printf "So your setup is:\n${disk} - disk\n${disk}${boot_partition} - boot\n${disk}${root_partition} - root\n"
