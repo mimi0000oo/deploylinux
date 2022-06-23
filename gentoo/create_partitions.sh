@@ -127,8 +127,85 @@ if [ "$1" = 2 ]; then # bios mode
                     enter_custom_configuration() {
                       fdisk /dev/${disk}
 
-                      printf "${MAGENTA}This are your partitions now!\n$(lsblk)\n"
-                      option_prompt "Is this ok?" "Yes" "No" "Back to fdisk" "Go to the predefined partitions" "Quit"
+                      printf "${MAGENTA}This are your partitions now!\n${WHITE}$(lsblk | grep $disk)\n"
+                      option_prompt "Is this ok?" "Yes" "No, back to fdisk" "Go to the predefined partitions" "Quit"
+                      read fdisk_exit
+
+                      case $fdisk_exit in 
+
+                        1)
+
+                          select_partitions_number() {
+
+                            printf $MAGENTA"What is your boot partition nr?\n>"
+                            read boot_partition
+
+                            if [ $boot_partition -n -lt 1 ]; then printf "${YELLOW}\"$boot_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
+
+                            printf $MAGENTA"What is your swap partition nr? (0 for none)\n>"
+                            read swap_partition
+                          
+                            if [ $swap_partition -n -lt 0 ]; then printf "${YELLOW}\"$swap_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
+
+                            printf $MAGENTA"What is your root partition nr?\n>"
+                            read root_partition
+                          
+                            if [ $root_partition -n -lt 1 ]; then printf "${YELLOW}\"$root_partition\"${RED} is not a valid option!${MAGENTA}\n" select_partitions_number; fi
+    
+                            if [ $swap_partition -eq 0 ]; then 
+                              printf "So your setup is:\n${disk} - disk\n${disk}${boot_partition} - boot\n${disk}${root_partition} - root\n"
+                            else
+                              printf "So your setup is:\n${disk} - disk\n${disk}${boot_partition} - boot\n${disk}${swap_partition} - swap\n${disk}${root_partition} - root\n"
+                            fi
+                          
+                            final_custom_check_case() {
+
+                              option_prompt "Is that ok?\n${RED}WARNING! ${YELLOW}THIS WILL MARK YOUR PARTITIONS WITH THE SPECIFIC TYPE!!${MAGENTA}" "Yes" "No, wrong numbers" "No, go back to fdisk"
+                              read final_custom_check
+
+                              case $final_custom_check in 
+
+                                1)
+                                  printf ${GREEN}"Writing partitions types!"
+                                  mkfs.vfat -F 32 /dev/${disk}${boot_partition}
+                                  mkfs.ext4 /dev/${disk}${root_partition}
+                                  if [ $swap_partition != 0 ]; then mkswap /dev/${disk}${swap_partition}; swapon /dev/${disk}${swap_partition}; fi 
+                                   
+                                  ;;
+
+                                2)
+                                  select_partitions_number
+                                  ;;
+
+                                3)
+                                 enter_custom_configuration
+                                 ;;
+
+
+                              esac
+
+                            }
+
+                          }
+
+                          select_partitions_number
+
+                          ;;
+
+                        2)
+                          enter_custom_configuration
+                          ;;
+
+                        3)
+                          partition_case 1
+                          ;;
+
+                        4)
+                          echo Goodbye!
+                          ;;
+
+                      esac
+
 
                     }
 
