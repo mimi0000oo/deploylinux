@@ -114,8 +114,42 @@ if [ "$1" = 2 ]; then # bios mode
               ;;
 
             2)
-              
-              
+              custom_confirmation_case() {
+
+                printf "${MAGENTA}This are your partitions at the moment:\n${WHITE}$(lsblk)\n"
+                yn_prompt "I will drop you in the fdisk setup! Is that ok?"
+                read custom_confirmation
+  
+                case $custom_confirmation in 
+                  
+                  [yY]*) 
+
+                    enter_custom_configuration() {
+                      fdisk
+
+                      printf "${MAGENTA}This are your partitions now!\n$(lsblk)\n"
+                      option_prompt "Is this ok?" "Yes" "No" "Back to fdisk" "Go to the predefined partitions" "Quit"
+
+                    }
+
+                    enter_custom_configuration
+
+                    ;;
+
+                  [nN]*)
+                    printf "Going back!"
+                    select_partition_route
+                    ;;
+
+                  *)
+                    printf "${YELLOW}\"$custom_confirmation\"${RED} is not a valid option!${WHITE}\n"
+                    custom_confirmation_case
+                    ;;
+
+                  esac    
+              }
+
+              custom_confirmation_case 
 
               ;;
 
