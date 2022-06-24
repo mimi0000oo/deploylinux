@@ -242,6 +242,11 @@ select_drive() {
                         echo Goodbye!
                         ;;
 
+                      *)
+                        printf "${YELLOW}\"$predefined_confirmation\"${RED} is not a valid option!${MAGENTA}\n"
+                        enter_custom_configuration
+                        ;;
+
                     esac
 
 
