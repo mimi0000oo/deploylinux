@@ -130,7 +130,7 @@ install_stage() {
         ;;
       esac
 
-      stage3_path=$(curl -s $stage3_opt | grep -v "^#" | cut -d " " -f1)
+      stage3_path=$(curl -L $stage3_opt | grep -v "^#" | cut -d " " -f1)
       echo $install_stage
 
       tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
