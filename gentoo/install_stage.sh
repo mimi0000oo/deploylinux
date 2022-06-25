@@ -114,6 +114,8 @@ install_stage() {
       option_prompt "What stage3 do you want?" "openrc (recommanded)" "desktop profile | openrc" "systemd" "desktop profile | systemd"
       predownlik="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/"
 
+      stage3_opt=""
+
       read stage3_choice
       case "$stage3_choice" in
         1) stage3opt="${predownlik}latest-stage3-amd64-openrc.txt"
@@ -128,7 +130,8 @@ install_stage() {
         ;;
       esac
 
-      stage3_path=$(curl -s $stage3_choice | grep -v "^#" | cut -d " " -f1)
+      stage3_path=$(curl -s $stage3_opt | grep -v "^#" | cut -d " " -f1)
+      echo $install_stage
 
       tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
