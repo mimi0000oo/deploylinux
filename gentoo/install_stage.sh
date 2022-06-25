@@ -17,7 +17,7 @@ install_stage() {
       
       case $acc_date in
         [yY]*) 
-          printf "Let's keep going than, there is no time to waste! (Literally)" 
+          printf "Let's keep going than, there is no time to waste! (Literally)\n" 
           ;;
 
         [nN]*)
@@ -105,9 +105,10 @@ install_stage() {
 
     cd /mnt/gentoo
     
-    option_prompt "What stage3 do you want?" "openrc" "desktop profile | openrc" "systemd" "desktop profile | systemd"
+    option_prompt "What stage3 do you want?" "openrc (recommanded)" "desktop profile | openrc" "systemd" "desktop profile | systemd"
     read stage3_choice
-    solve_optprompt $stage3_choice "wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-openrc-20220619T170540Z.tar.xz" "https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-desktop-openrc-20220619T170540Z.tar.xz" "https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-systemd-20220619T170540Z.tar.xz" "https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-desktop-systemd-20220619T170540Z.tar.xz"
+    solve_optprompt $stage3_choice "wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64-openrc/stage3-amd64-openrc-*.tar.gz"
+    #solve_optprompt $stage3_choice "wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-openrc-20220619T170540Z.tar.xz" 
 
     tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
