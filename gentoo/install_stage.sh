@@ -118,13 +118,13 @@ install_stage() {
 
       read stage3_choice
       case "$stage3_choice" in
-        1) stage3opt="${predownlik}latest-stage3-amd64-openrc.txt"
+        1) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt"
         ;;
-        2) stage3opt="${predownlik}latest-stage3-amd64-desktop-openrc.txt"
+        2) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt"
         ;;
-        3) stage3opt="${predownlik}latest-stage3-amd64-system.txt"
+        3) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-system.txt"
         ;;
-        4) stage3opt="${predownlik}latest-stage3-amd64-desktop-system.txt"
+        4) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-desktop-system.txt"
         ;;
         *) stage3_setup 
         ;;
