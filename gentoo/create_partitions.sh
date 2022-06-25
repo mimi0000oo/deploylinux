@@ -22,8 +22,8 @@ select_drive() {
 
   mode=$1
   
-  drives="$(lsblk -o MODEL,NAME,SIZE,TYPE,MOUNTPOINTS,HOTPLUG | grep disk)"
-  drivenr="$(lsblk -o MODEL,NAME,SIZE,TYPE,MOUNTPOINTS,HOTPLUG | grep -c disk)"
+  drives="$(lsblk -o MODEL,NAME,SIZE,TYPE | grep disk)"
+  drivenr="$(lsblk -o MODEL,NAME,SIZE,TYPE | grep -c disk)"
   disk=""
   root_nr=3
   
@@ -239,7 +239,7 @@ select_drive() {
                         ;;
 
                       4)
-                        echo Goodbye!
+                        printf "Goodbye!\n"
                         ;;
 
                       *)
@@ -303,7 +303,6 @@ select_drive() {
   mount_root $disk $root_nr
 
 }
-
 
 
 
