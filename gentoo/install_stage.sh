@@ -33,20 +33,24 @@ install_stage() {
               
                 manually_time_update() {
 
-                  printf ${MAGENTA}"Please enter your current unix time\n> ${WHITE}"
+                  printf ${MAGENTA}"Please enter your current time (MMDDhhmmYYYY)\n> ${WHITE}"
                   read unixtime_date
-                  case "$unixtime_date" in
+                  case "$date_time" in
                     [1234567890]*) 
                   
                       ok_time_update () {
 
-                        date $unixtime_date
+                        date $date_time
                         option_prompt "Time is: $(date)" "Good!" "Update again" 
                         read ok_date
 
                         case "$ok_date" in
                           1) 
                             printf "Good!"
+                            ;;
+
+                          2)
+                            manually_time_update
                             ;;
                       
                           *)
@@ -105,11 +109,35 @@ install_stage() {
 
     cd /mnt/gentoo
     
-    option_prompt "What stage3 do you want?" "openrc (recommanded)" "desktop profile | openrc" "systemd" "desktop profile | systemd"
-    read stage3_choice
+    stage3_setup() {
+
+      option_prompt "What stage3 do you want?" "openrc (recommanded)" "desktop profile | openrc" "systemd" "desktop profile | systemd"
+      predownlik="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/"
+
+      read stage3_choice
+      case "$stage3_choice" in
+        1) stage3opt="${predownlik}latest-stage3-amd64-openrc.txt"
+        ;;
+        2) stage3opt="${predownlik}latest-stage3-amd64-desktop-openrc.txt"
+        ;;
+        3) stage3opt="${predownlik}latest-stage3-amd64-system.txt"
+        ;;
+        4) stage3opt="${predownlik}latest-stage3-amd64-desktop-system.txt"
+        ;;
+        *) stage3_setup 
+        ;;
+      esac
+
+      stage3_path=$(curl -s $stage3_choice | grep -v "^#" | cut -d " " -f1)
+
+      tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
+
+    }
+
+    stage3_setup
+
     solve_optprompt $stage3_choice "wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64-openrc/stage3-amd64-openrc-*.tar.gz"
     #solve_optprompt $stage3_choice "wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-openrc-20220619T170540Z.tar.xz" 
 
-    tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 }
