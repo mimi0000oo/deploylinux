@@ -118,7 +118,7 @@ install_stage() {
       case "$stage3_choice" in
         1) 
           stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt"
-          stage3_path=$(curl -L $stage3_opt | grep -v "^#" | cut -d " " -f1)
+          stage3_path=$(curl -L https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt | grep -v "^#" | cut -d " " -f1)
           wget $stage3_path
         ;;
         2) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt"
