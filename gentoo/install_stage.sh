@@ -109,6 +109,7 @@ install_stage() {
 
     cd /mnt/gentoo
     
+    stage3_opt=""
     stage3_setup() {
 
       option_prompt "What stage3 do you want?" "openrc (recommanded)" "desktop profile | openrc" "systemd" "desktop profile | systemd"
@@ -116,17 +117,13 @@ install_stage() {
 
       read stage3_choice
       case "$stage3_choice" in
-        1) 
-          stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt"
-          stage3_path=$(curl -L https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt | grep -v "^#" | cut -d " " -f1)
-          stage3_dlink="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_path"
-          wget $stage3_dlink
+        1) stage3_opt="latest-stage3-amd64-openrc.txt"
         ;;
-        2) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt"
+        2) stage3_opt="latest-stage3-amd64-desktop-openrc.txt"
         ;;
-        3) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-system.txt"
+        3) stage3_opt="latest-stage3-amd64-systemd.txt"
         ;;
-        4) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-desktop-system.txt"
+        4) stage3_opt="latest-stage3-amd64-desktop-systemd.txt"
         ;;
         *) stage3_setup 
         ;;
@@ -135,6 +132,10 @@ install_stage() {
     }
 
     stage3_setup
+    
+    stage3_path="$(curl -L https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_opt | grep -v "^#" | cut -d " " -f1)"
+    stage3_dlink="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_path"
+    wget $stage3_dlink
     
     tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
