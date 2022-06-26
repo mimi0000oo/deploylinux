@@ -130,8 +130,9 @@ install_stage() {
       esac
 
     }
-
+    printf "${RED}before $stage3_opt"
     stage3_setup
+    printf "${RED}after $stage3_opt"
     
     stage3_path=$(curl -L $stage3_opt | grep -v "^#" | cut -d " " -f1)
 
