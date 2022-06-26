@@ -34,7 +34,7 @@ install_stage() {
                 manually_time_update() {
 
                   printf ${MAGENTA}"Please enter your current time (MMDDhhmmYYYY)\n> ${WHITE}"
-                  read unixtime_date
+                  read date_time
                   case "$date_time" in
                     [1234567890]*) 
                   
@@ -66,7 +66,7 @@ install_stage() {
                     ;;
               
                     *)
-                      printf "${YELLOW}\"$unixtime_date\"${RED} is not a valid option!${WHITE}\n"
+                      printf "${YELLOW}\"$date_time\"${RED} is not a valid option!${WHITE}\n"
                       manually_time_update
                       ;;
                   esac
@@ -135,7 +135,7 @@ install_stage() {
     
     stage3_path="$(curl -L https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_opt | grep -v "^#" | cut -d " " -f1)"
     stage3_dlink="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_path"
-    wget $stage3_dlink
+    wget -c $stage3_dlink
     
     tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
