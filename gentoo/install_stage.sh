@@ -109,12 +109,11 @@ install_stage() {
 
     cd /mnt/gentoo
     
+    stage3_opt=""
     stage3_setup() {
 
       option_prompt "What stage3 do you want?" "openrc (recommanded)" "desktop profile | openrc" "systemd" "desktop profile | systemd"
       predownlik="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/"
-
-      stage3_opt=""
 
       read stage3_choice
       case "$stage3_choice" in
