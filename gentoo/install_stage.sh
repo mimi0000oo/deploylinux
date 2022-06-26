@@ -131,7 +131,6 @@ install_stage() {
       esac
 
       stage3_path=$(curl -L $stage3_opt | grep -v "^#" | cut -d " " -f1)
-      echo $install_stage
 
       tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
@@ -139,7 +138,7 @@ install_stage() {
 
     stage3_setup
 
-    solve_optprompt $stage3_choice "wget $stage3_opt"
+    solve_optprompt $stage3_choice "wget $stage3_path"
     #solve_optprompt $stage3_choice "wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20220619T170540Z/stage3-amd64-openrc-20220619T170540Z.tar.xz" 
 
 
