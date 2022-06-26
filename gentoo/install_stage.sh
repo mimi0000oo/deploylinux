@@ -119,7 +119,8 @@ install_stage() {
         1) 
           stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt"
           stage3_path=$(curl -L https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-openrc.txt | grep -v "^#" | cut -d " " -f1)
-          wget $stage3_path
+          stage3_dlink="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_path"
+          wget $stage3_dlink
         ;;
         2) stage3opt="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/latest-stage3-amd64-desktop-openrc.txt"
         ;;
