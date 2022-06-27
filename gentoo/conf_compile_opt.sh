@@ -27,7 +27,7 @@ conf_compile_opt() {
           printf "How many MAKEOPTS jobs do you want? (jobs help you compile packages faster, 2G ram is recommanded for every job)\nCPU: $cpujobs threads\nRAM: $ramjobs\n${MAGENTA}> ${WHITE}"
           read jobss
 
-          if [ jobss -gt $cpujobs ]; then
+          if [ $jobss -gt $cpujobs ]; then
             printf "${RED}You cannot have more jobs than cpu threads!\n${WHITE}"
             jobsnr
           else
