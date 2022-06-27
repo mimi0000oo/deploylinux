@@ -24,11 +24,11 @@ conf_compile_opt() {
         ramjobs=$(free -th | grep Mem: | awk {' print $2 '})
 
         jobsnr(){
-          printf "How many MAKEOPTS jobs do you want? (jobs help you compile packages faster, 2G ram is recommanded for every job)\nCPU: $cpujobs\nRAM: $ramjobs"
+          printf "How many MAKEOPTS jobs do you want? (jobs help you compile packages faster, 2G ram is recommanded for every job)\nCPU: $cpujobs threads\nRAM: $ramjobs\n${MAGENTA}> ${WHITE}"
           read jobss
 
-          if [ jobss > $cpujobs ]; then
-            printf "${RED}You cannot have more jobs than cpu threads!\n"
+          if [ jobss -gt $cpujobs ]; then
+            printf "${RED}You cannot have more jobs than cpu threads!\n${WHITE}"
             jobsnr
           else
             yn_prompt "Are you sure you want $jobss jobs?"
