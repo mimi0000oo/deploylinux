@@ -20,7 +20,7 @@ conf_compile_opt() {
     case "$comp_opt" in
       1)
         jobs=""
-        cpujobs=$(( $(lscpu | grep "CPU family:" | awk {' print $2 '}) * $(lscpu | grep "Thread(s) per core:" | awk {' print $2 '}) ))
+        cpujobs=$(( $(lscpu | grep "CPU family:" | awk {' print $3 '}) * $(lscpu | grep "Thread(s) per core:" | awk {' print $4 '}) ))
         ramjobs=$(free -th | grep Mem: | awk {' print $2 '})
 
         jobsnr(){
