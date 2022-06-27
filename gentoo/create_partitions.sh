@@ -13,6 +13,7 @@ mount_root() {
   
   mkdir --parents /mnt/gentoo
   mount /dev/$1$2 /mnt/gentoo
+  echo $1 > ./gentoo/achroot/bchroot_data
 
 }
 
@@ -86,7 +87,7 @@ select_drive() {
             predefined_partition_scheme() {
         
               #disk
-              wipefs -a /dev/${disk}
+              wipefs --all --force /dev/${disk}
               #disk1-3
 
               if [ $mode -eq 0 ]; then

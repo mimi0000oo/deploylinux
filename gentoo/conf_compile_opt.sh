@@ -45,9 +45,25 @@ conf_compile_opt() {
         makeownco(){
           nano /mnt/gentoo/etc/portage/make.conf
 
-          yn_prompt "Is this ok?"
-          printf "$(cat /mnt/gentoo/etc/portage/make.conf)"
-          solve_ynprompt "Ok!" makeownco
+          mkonwcook_case() {
+            printf "$(cat /mnt/gentoo/etc/portage/make.conf)"
+            yn_prompt "Is this ok?"
+            read mkonwcook
+            case "$mkonwcook" in
+              [yY]*)
+                echo Ok! 
+                ;;
+              [nN]*)
+                makeownco
+                ;;
+              *)
+                printf "${YELLOW}\"$mkonwcook\"${RED} is not a valid option!${WHITE}\n"
+                makeownco_case
+                ;;
+            esac
+          }
+
+          makeownco_case  
 
         }
 
