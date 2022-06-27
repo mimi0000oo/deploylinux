@@ -39,7 +39,7 @@ conf_compile_opt() {
 
         jobsnr
 
-        cat /mnt/gentoo/etc/portage/make.conf | sed "s/-O2 -pipe/-march=native -O2 -pipe/" | sed "s/FFLAGS=\"\${COMMON_FLAGS}\"/FFLAGS=\"\${COMMON_FLAGS}\"\nMAKEOPTS=\"-j$jobs\"" | echo > /mnt/gentoo/etc/portage/make.conf
+        cat /mnt/gentoo/etc/portage/make.conf | sed "s/-O2 -pipe/-march=native -O2 -pipe/" | sed "s/FFLAGS=\"\${COMMON_FLAGS}\"/FFLAGS=\"\${COMMON_FLAGS}\"\nMAKEOPTS=\"-j$jobs\"/" | echo > /mnt/gentoo/etc/portage/make.conf
         ;;
       2)
         makeownco(){
