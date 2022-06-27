@@ -8,5 +8,7 @@ source ./gentoo/conf_compile_opt.sh
 #include end
 
 create_partitions
+
 install_stage
+
 conf_compile_opt
