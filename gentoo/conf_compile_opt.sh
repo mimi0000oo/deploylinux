@@ -91,4 +91,3 @@ conf_compile_opt() {
   compile_opt
 
 }
-conf_compile_opt
