@@ -11,4 +11,4 @@ create_partitions
 
 install_stage
 
-conf_compile_opt
+#conf_compile_opt
