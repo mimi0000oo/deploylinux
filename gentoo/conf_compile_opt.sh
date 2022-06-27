@@ -50,6 +50,8 @@ conf_compile_opt() {
           solve_ynprompt "Ok!" makeownco
 
         }
+
+        makeownco
         
         ;;
 
@@ -77,6 +79,8 @@ conf_compile_opt() {
           esac    
 
         }
+
+        third
 
         ;;
 
