@@ -32,7 +32,7 @@ conf_compile_opt() {
             jobsnr
           else
             yn_prompt "Are you sure you want $jobss jobs?"
-            solve_ynprompt "echo Very good!" jobsnr 
+            solve_ynprompt "" jobsnr 
           fi
 
         }
