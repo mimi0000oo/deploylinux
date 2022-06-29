@@ -6,7 +6,7 @@ source ./other/colors.sh
 
 chroot_prepare() {
   printf "${GREEN}Choose the closest sources to your location!"
-  sleep 10
+  sleep 4 
   
   mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 
@@ -24,4 +24,5 @@ chroot_prepare() {
   mount --bind /run /mnt/gentoo/run
   mount --make-slave /mnt/gentoo/run 
   
+  cp deploylinux-testing /mnt/gentoo
 }
