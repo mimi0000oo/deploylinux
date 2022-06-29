@@ -5,7 +5,8 @@ source ./other/colors.sh
 # include end
 
 chroot_prepare() {
-  cp ../deploylinux-testing /mnt/gentoo/
+  echo $(ls)
+  cp deploylinux-testing /mnt/gentoo/
   printf "${GREEN} Choose the closest sources to your location!"
   sleep 10
   
