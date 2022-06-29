@@ -31,8 +31,26 @@ conf_compile_opt() {
             printf "${RED}You cannot have more jobs than cpu threads!\n${WHITE}"
             jobsnr
           else
-            yn_prompt "Are you sure you want $jobss jobs?"
-            solve_ynprompt "" jobsnr 
+            sure_case() {
+              yn_prompt "Are you sure you want $jobss jobs?"
+              read sure_jobs
+              case "$sure_jobs" in
+                [yY]*)
+                  printf "Ok\n"
+                  ;;
+                [nN]*)
+                  sure_case
+                  ;;
+                *)
+                  printf "${YELLOW}\"$sure_jobs\"${RED} is not a valid option!${WHITE}\n"
+                  sure_case
+                  ;;
+              esac
+           
+            }
+
+            sure_case
+
           fi
 
         }
