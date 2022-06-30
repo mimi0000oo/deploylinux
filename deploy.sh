@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # include files
-source ./other/distro.sh
+distro="$(dmesg | grep "Linux version" | awk {' print $6 '} | sed -e 's/^([a-z]*@//' | sed -e 's/)//')"
 # include end
 
 if [ $distro = "archlinux" ]; then
@@ -15,8 +15,9 @@ if [ $distro = "archlinux" ]; then
 else
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
-  cd deploylinux-testing/
-  rm ../deploy.sh
-  ./setup.sh
+  mkdir --parents /mnt/gentoo
+  mv deploylinux-testing /mnt/gentoo
+  rm ./deploy.sh
+  ./mnt/gentoo/deploylinux-testing/setup.sh
 
 fi
