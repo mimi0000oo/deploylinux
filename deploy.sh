@@ -17,7 +17,6 @@ else
   unzip testing.zip
   mkdir --parents /mnt/gentoo
   cp -r deploylinux-testing /mnt/gentoo
-  rm ./deploy.sh
   /mnt/gentoo/deploylinux-testing/./setup.sh
 
 fi
