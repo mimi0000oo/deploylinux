@@ -18,5 +18,6 @@ else
   unzip /mnt/gentoo/testing.zip -d /mnt/gentoo
   /mnt/gentoo/deploylinux-testing/./setup.sh
   rm ./deploy.sh
+  cd /mnt/gentoo/deploylinux-testing
 
 fi
