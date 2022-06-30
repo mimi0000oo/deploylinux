@@ -18,11 +18,5 @@ else
   unzip /mnt/gentoo/testing.zip -d /mnt/gentoo
   rm ./deploy.sh
   ./mnt/gentoo/deploylinux-testing/setup.sh
-  #mkdir --parents /mnt/gentoo
-  #wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip -P /mnt/gentoo
-  #unzip /mnt/gentoo/testing.zip -d /mnt/gentoo
-  #rm ./deploy.sh
-  #cd /mnt/gentoo/deploylinux-testing/
-  #./setup.sh
 
 fi
