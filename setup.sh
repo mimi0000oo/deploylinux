@@ -10,6 +10,8 @@ arch_import_configuration() { ./arch/./import_configuration.sh; }
 gentoo_import_configuration() { ./gentoo/./import_configuration.sh; }
 # include end
 
+echo $distro
+
 if [ $distro = "archlinux" ]; then printf $BLUE; else printf $MAGENTA; fi; 
 clear
 # welcome message
