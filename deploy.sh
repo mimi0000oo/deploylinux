@@ -16,8 +16,8 @@ else
   wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
   unzip testing.zip
   mkdir --parents /mnt/gentoo
-  mv deploylinux-testing /mnt/gentoo
+  cp deploylinux-testing /mnt/gentoo
   rm ./deploy.sh
-  ./mnt/gentoo/deploylinux-testing/setup.sh
+  /mnt/gentoo/deploylinux-testing/./setup.sh
 
 fi
