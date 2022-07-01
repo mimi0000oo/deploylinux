@@ -24,5 +24,4 @@ chroot_prepare() {
   mount --bind /run /mnt/gentoo/run
   mount --make-slave /mnt/gentoo/run 
   
-  cp deploylinux-testing /mnt/gentoo
 }

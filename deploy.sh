@@ -13,10 +13,10 @@ if [ $distro = "archlinux" ]; then
   ./setup.sh
 
 else
-  mkdir --parents /mnt/gentoo
-  wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip -P /mnt/gentoo
-  unzip /mnt/gentoo/testing.zip -d /mnt/gentoo
-  rm ./deploy.sh
-  /mnt/gentoo/deploylinux-testing/./setup.sh
+  wget https://github.com/mimi0000oo/deploylinux/archive/testing.zip
+  unzip testing.zip
+  cd deploylinux-testing/
+  rm ../deploy.sh
+  ./setup.sh
 
 fi
