@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # include files
-source ../../other/colors.sh
-source ../../prompts/yn_prompt.sh
+source ./other/colors.sh
+source ./prompts/yn_prompt.sh
 # include end
 
 timezone() {

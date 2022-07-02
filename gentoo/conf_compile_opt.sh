@@ -39,7 +39,7 @@ conf_compile_opt() {
                   printf "Ok\n"
                   ;;
                 [nN]*)
-                  sure_case
+                  jobsnr
                   ;;
                 *)
                   printf "${YELLOW}\"$sure_jobs\"${RED} is not a valid option!${WHITE}\n"
