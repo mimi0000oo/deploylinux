@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd /deploylinux-testing
 # include files
 source ./gentoo/achroot/mount_root.sh
 source ./gentoo/achroot/configure_portage.sh
@@ -9,7 +10,7 @@ source ./gentoo/achroot/update_world.sh
 source ./gentoo/achroot/timezone.sh
 source ./gentoo/achroot/conf_locale.sh
 # include end
-cd /deploylinux-testing
+
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 
