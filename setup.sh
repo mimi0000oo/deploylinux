@@ -34,7 +34,6 @@ echo ╚═╩═╝╚═╩╩╩═╝╠╗╠═╩╩═╩═╩═╩═
 echo ────────────╚═╝
 fi
 # end of the welcome
-echo $distro
 
 setup_prompt() {
 
