@@ -16,4 +16,4 @@ conf_compile_opt
 
 chroot_prepare
 
-chroot /mnt/gentoo /mnt/gentoo/deploylinux-testing/gentoo/achroot/./start_chroot.sh
+chroot /mnt/gentoo /deploylinux-testing/gentoo/achroot/./start_chroot.sh
