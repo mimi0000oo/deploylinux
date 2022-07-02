@@ -135,6 +135,6 @@ install_stage() {
     stage3_dlink="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/$stage3_path"
     wget -c $stage3_dlink -P /mnt/gentoo
     
-    tar xpvf /mnt/gentoo/stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
+    tar xpvf /mnt/gentoo/stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
 
 }
