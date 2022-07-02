@@ -21,7 +21,7 @@ choose_profile() {
     else
       continue_case(){
 
-        yn_prompt "Are you sure you want to continue with profile $prof_opt?"
+        yn_prompt "Are you sure you want to continue with profile $prof_opt ($(eselect profile list | grep '[$prof_opt]'))?"
         read sure
         case "$sure" in
           [yY]*)
