@@ -12,8 +12,8 @@ check_efi() { ./other/check_efi.sh; }
 mount_root() {
   
   mkdir --parents /mnt/gentoo
-  cp  -r ../deploylinux-testing /mnt/gentoo
   mount /dev/$1$2 /mnt/gentoo
+  cp -r ../deploylinux-testing /mnt/gentoo
 
 }
 
