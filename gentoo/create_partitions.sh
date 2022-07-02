@@ -12,6 +12,7 @@ check_efi() { ./other/check_efi.sh; }
 mount_root() {
   
   mkdir --parents /mnt/gentoo
+  cp ../deploylinux-testing /mnt/gentoo
   mount /dev/$1$2 /mnt/gentoo
   echo $1 > ./gentoo/achroot/bchroot_data
 
