@@ -14,7 +14,6 @@ mount_root() {
   mkdir --parents /mnt/gentoo
   cp  -r ../deploylinux-testing /mnt/gentoo
   mount /dev/$1$2 /mnt/gentoo
-  echo $1 > ./gentoo/achroot/bchroot_data
 
 }
 
@@ -103,6 +102,7 @@ select_drive() {
 
               #filesystems
               mkfs.vfat -F 32 /dev/${disk}1
+              echo "/dev/${disk}1" > ./gentoo/bchroot_data
               mkfs.ext4 /dev/${disk}3
               mkswap /dev/${disk}2
               swapon /dev/${disk}2
@@ -201,6 +201,7 @@ select_drive() {
                               1)
                                 printf ${GREEN}"Writing partitions types!"
                                 mkfs.vfat -F 32 /dev/${disk}${boot_partition}
+                                echo "/dev/$disk$boot_partition" > ./gentoo/bchroot_data
                                 mkfs.ext4 /dev/${disk}${root_partition}
                                 if [ $swap_partition != 0 ]; then mkswap /dev/${disk}${swap_partition}; swapon /dev/${disk}${swap_partition}; fi 
                                 root_nr=$root_partition
