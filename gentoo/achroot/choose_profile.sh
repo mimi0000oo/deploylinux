@@ -11,7 +11,7 @@ choose_profile() {
   total_profiles_nr=$(eselect profile list | grep -c linux)
 
   profile_option() {
-    printf "${MAGENTA}What profile do you want (1 - $profile_nr)?\n> ${WHITE}"
+    printf "${MAGENTA}What profile do you want (1 - $total_profiles_nr)?\n> ${WHITE}"
     read prof_opt
     case "$prof_opt" in
       [1234567890]*) 
@@ -25,7 +25,8 @@ choose_profile() {
 
           continue_case() {
 
-            yn_prompt "Are you sure you want to continue with profile $prof_opt ($(eselect profile list | grep [$prof_opt]))?"
+            selected_prof_opt=$(eselect profile list | grep "\[$prof_opt\]")
+            yn_prompt "Are you sure you want to continue with profile $prof_opt ($selected_prof_opt)?"
             read sure
 
             case "$sure" in
