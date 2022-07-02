@@ -1,16 +1,15 @@
 #!/bin/bash
 
 # include files
-#source ./mount_root.sh
-#source ./configure_portage.sh
-#source ./choose_profile.sh
-#source ./cpu_flags.sh
-#source ./update_world.sh
-#source ./timezone.sh
-#source ./conf_locale.sh
+source ./gentoo/achroot/mount_root.sh
+source ./gentoo/achroot/configure_portage.sh
+source ./gentoo/achroot/choose_profile.sh
+source ./gentoo/achroot/cpu_flags.sh
+source ./gentoo/achroot/update_world.sh
+source ./gentoo/achroot/timezone.sh
+source ./gentoo/achroot/conf_locale.sh
 # include end
-ls
-
+cd /deploylinux-testing
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 
